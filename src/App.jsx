@@ -1,4 +1,4 @@
-import { CheckCircle, PencilSimple, TrashSimple } from "phosphor-react";
+import { CheckCircle, Circle, PencilSimple, TrashSimple } from "phosphor-react";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -53,6 +53,14 @@ function App() {
     console.log("aoba", newTodos);
   }
 
+  function handleMarkAsNotCompleted(index) {
+    const newTodos = [...todos];
+    newTodos[index] = { ...newTodos[index], completed: false };
+    setTodos(newTodos);
+    localStorage.setItem("todosLocalStorage", JSON.stringify(newTodos));
+    console.log("aoba", newTodos);
+  }
+
   function handleDeleteToDo(index) {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -61,15 +69,16 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen my-0 mx-auto bg-gradient-to-b from-indigo-900 via-violet-500 to-fuchsia-800 max-w-[1200px] pt-24">
+    <div className="h-screen w-screen my-0 mx-auto bg-gradient-to-b from-[#94bbe9] via-[#eeaeca] to-[#94bbe9] max-w-[1200px] pt-24">
       <div className="flex flex-col justify-center items-center mb-16">
-        <h1 className="font-bold text-3xl mb-4">Q LISTINHA</h1>
+        <h1 className="font-bold text-3xl mb-4">GOTTA DO</h1>
         <form onSubmit={handleAddToDo}>
           <input
             id="todo"
             type="text"
             name="todo"
-            className="px-5 py-2 rounded-md min-w-[24rem] text-gray-300 bg-gray-900"
+            autocomplete="off"
+            className="px-5 py-2 rounded-md min-w-[24rem] text-gray-300 bg-transparent border"
           />
           <button type="submit" className="bg-cyan-800 ml-4">
             Add
@@ -79,13 +88,10 @@ function App() {
 
       <ul className="flex flex-col items-center justify-center">
         {todos.map((todo, index) => (
-          <li
-            key={index}
-            className=" min-w-full p-4 mb-6 border-white border rounded-lg"
-          >
+          <li key={index} className="min-w-full p-4 mb-6 rounded-lg shadow-md">
             {editingIndex === index ? (
               <form
-                className="flex flex-col items-end p-2"
+                className="flex flex-col items-end p-2 "
                 onSubmit={(event) => handleUpdateToDo(event, index)}
               >
                 <textarea
@@ -98,7 +104,7 @@ function App() {
                 </button>
               </form>
             ) : (
-              <div className="flex flex-col p-2  w-full ">
+              <div className="flex flex-col p-2  w-full">
                 <p
                   className={`${
                     todo.completed && "line-through"
@@ -110,23 +116,36 @@ function App() {
                   <div className="flex justify-end">
                     <CheckCircle
                       size={28}
-                      className="text-green-600 cursor-pointer hover:opacity-70 "
+                      className="text-blue-600 cursor-pointer hover:opacity-70 "
                       onClick={() => handleMarkAsCompleted(index)}
                     />
 
                     <PencilSimple
                       size={28}
-                      className="text-yellow-500 cursor-pointer hover:opacity-70 mx-5"
+                      className="text-[#155e80] cursor-pointer hover:opacity-70 mx-5"
                       onClick={() => handleEditToDo(index)}
                     />
 
                     <TrashSimple
                       size={28}
-                      className="text-gray-500 cursor-pointer hover:opacity-70"
+                      className="text-red-500 cursor-pointer hover:opacity-70"
                       onClick={() => handleDeleteToDo(index)}
                     />
                   </div>
-                ) : null}
+                ) : (
+                  <div className="flex justify-end">
+                    <Circle
+                      size={28}
+                      className="text-blue-600 cursor-pointer hover:opacity-70 "
+                      onClick={() => handleMarkAsNotCompleted(index)}
+                    />
+                    <TrashSimple
+                      size={28}
+                      className="text-red-500 cursor-pointer hover:opacity-70"
+                      onClick={() => handleDeleteToDo(index)}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </li>
@@ -135,5 +154,6 @@ function App() {
     </div>
   );
 }
+
 localStorage.setItem;
 export default App;

@@ -14,10 +14,14 @@ a:hover {
 body {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: linear-gradient(to bottom, #94bbe9 0%, #eeaeca 50%, #94bbe9 100%);
   color-scheme: light dark;
 }
-
+input:focus {
+  border: none;
+  inline-size: none;
+  outline: solid 1px #fff;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -33,5 +37,5 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 1px auto -webkit-focus-ring-color;
 }
