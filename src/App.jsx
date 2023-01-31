@@ -77,7 +77,7 @@ function App() {
             id="todo"
             type="text"
             name="todo"
-            autocomplete="off"
+            autoComplete="off"
             className="px-5 py-2 rounded-md min-w-[24rem] text-gray-300 bg-transparent border"
           />
           <button type="submit" className="bg-cyan-800 ml-4">
