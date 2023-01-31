@@ -61,7 +61,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen my-0 mx-auto bg-[#242424] max-w-[1200px] pt-24">
+    <div className="h-screen w-screen my-0 mx-auto bg-gradient-to-b from-indigo-900 via-violet-500 to-fuchsia-800 max-w-[1200px] pt-24">
       <div className="flex flex-col justify-center items-center mb-16">
         <h1 className="font-bold text-3xl mb-4">Q LISTINHA</h1>
         <form onSubmit={handleAddToDo}>
