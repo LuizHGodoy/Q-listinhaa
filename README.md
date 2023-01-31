@@ -9,4 +9,4 @@
 
 ### it looks like this
   
-<img src="https://user-images.githubusercontent.com/40682386/210557074-1b3db398-6482-4676-99d7-174427f0cccb.png" width="800" height="600">
+<img src="https://user-images.githubusercontent.com/40682386/210557074-1b3db398-6482-4676-99d7-174427f0cccb.png" width="1200" height="900">
