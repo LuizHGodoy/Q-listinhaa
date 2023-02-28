@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="h-screen w-screen my-0 mx-auto bg-gradient-to-b from-[#94bbe9] via-[#eeaeca] to-[#94bbe9] max-w-[1200px] pt-24">
       <div className="flex flex-col justify-center items-center mb-16">
-        <h1 className="font-bold text-3xl mb-4">GOTTA DO</h1>
+        <h1 className="font-bold text-3xl mb-4">Todo-list</h1>
         <form onSubmit={handleAddToDo}>
           <input
             id="todo"
