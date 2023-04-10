@@ -69,18 +69,26 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen my-0 mx-auto bg-gradient-to-b from-[#94bbe9] via-[#eeaeca] to-[#94bbe9] max-w-[1200px] pt-24">
+    <div className="min-h-[100vh] min-w-[100vw] my-0 mx-auto bg-sky-950 pt-24">
       <div className="flex flex-col justify-center items-center mb-16">
-        <h1 className="font-bold text-3xl mb-4">Todo-list</h1>
-        <form onSubmit={handleAddToDo}>
+        <img src="https://i.imgur.com/lG8TqmF.gif" width="100" height="100" />
+
+        <form
+          onSubmit={handleAddToDo}
+          className="mt-5 items-center justify-center"
+        >
           <input
             id="todo"
             type="text"
             name="todo"
+            placeholder="type your task title here"
             autoComplete="off"
-            className="px-5 py-2 rounded-md min-w-[24rem] text-gray-300 bg-transparent border"
+            className="px-5 py-2 rounded-md w-[22rem] cel-sm:w-[95%] cel-md:w-[100%] cel-lg:w-[100%] mr-4 cel-sm:mr-0 cel-md:mr-0 cel-lg:mr-0 ml-8 cel-sm:ml-2 cel-md:ml-0 cel-lg:ml-0 text-gray-300 bg-cyan-700"
           />
-          <button type="submit" className="bg-cyan-800 ml-4">
+          <button
+            type="submit"
+            className="bg-cyan-500 cel-sm:mt-2 cel-md:mt-2 cel-lg:mt-2 cel-sm:ml-2 cel-sm:w-[95%] cel-md:ml-0 cel-md:w-[100%] cel-lg:ml-0 cel-lg:w-[100%] "
+          >
             Add
           </button>
         </form>
@@ -88,16 +96,19 @@ function App() {
 
       <ul className="flex flex-col items-center justify-center">
         {todos.map((todo, index) => (
-          <li key={index} className="min-w-full p-4 mb-6 rounded-lg shadow-md">
+          <li
+            key={index}
+            className="w-[80%] p-4 mb-6 rounded-lg shadow-md bg-sky-900 cel-sm:w-[95%] cel-md:w-[82%] cel-lg:w-[75%]"
+          >
             {editingIndex === index ? (
               <form
-                className="flex flex-col items-end p-2 "
+                className="flex flex-col items-end p-2"
                 onSubmit={(event) => handleUpdateToDo(event, index)}
               >
                 <textarea
                   name="todo"
                   defaultValue={todo.text}
-                  className="p-2 w-full my-10 text-gray-300 bg-gray-900"
+                  className="p-2 w-full my-10 h-auto text-gray-200 bg-cyan-600 rounded-lg "
                 />
                 <button type="submit" className="bg-yellow-500 w-24">
                   Update
@@ -116,13 +127,13 @@ function App() {
                   <div className="flex justify-end">
                     <CheckCircle
                       size={28}
-                      className="text-blue-600 cursor-pointer hover:opacity-70 "
+                      className="text-cyan-500 cursor-pointer hover:opacity-70 "
                       onClick={() => handleMarkAsCompleted(index)}
                     />
 
                     <PencilSimple
                       size={28}
-                      className="text-[#155e80] cursor-pointer hover:opacity-70 mx-5"
+                      className="text-yellow-500 cursor-pointer hover:opacity-70 mx-5"
                       onClick={() => handleEditToDo(index)}
                     />
 
@@ -136,7 +147,7 @@ function App() {
                   <div className="flex justify-end">
                     <Circle
                       size={28}
-                      className="text-blue-600 cursor-pointer hover:opacity-70 "
+                      className="text-cyan-500 cursor-pointer hover:opacity-70 "
                       onClick={() => handleMarkAsNotCompleted(index)}
                     />
                     <TrashSimple
