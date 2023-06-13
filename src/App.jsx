@@ -89,7 +89,7 @@ function App() {
             type="submit"
             className="bg-cyan-500 cel-sm:mt-2 cel-md:mt-2 cel-lg:mt-2 cel-sm:ml-2 cel-sm:w-[95%] cel-md:ml-0 cel-md:w-[100%] cel-lg:ml-0 cel-lg:w-[100%] "
           >
-            Add
+            Adicionar
           </button>
         </form>
       </div>
